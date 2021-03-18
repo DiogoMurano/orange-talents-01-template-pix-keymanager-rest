@@ -1,1 +1,1 @@
-rootProject.name="key-manager"
+rootProject.name="key"
