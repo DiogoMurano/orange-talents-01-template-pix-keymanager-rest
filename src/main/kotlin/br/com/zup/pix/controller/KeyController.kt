@@ -2,8 +2,10 @@ package br.com.zup.pix.controller
 
 import br.com.zup.pix.FindPixKeyRequest
 import br.com.zup.pix.KeyManagerServiceGrpc
+import br.com.zup.pix.ListAllPixKeysRequest
 import br.com.zup.pix.controller.request.CreatePixKeyRequest
 import br.com.zup.pix.controller.request.RemovePixKeyRequest
+import br.com.zup.pix.controller.response.ListPixKeysResponse
 import br.com.zup.pix.controller.response.PixKeyDetailsResponse
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
@@ -45,6 +47,16 @@ class KeyController(
                 ).build()
         )
         return HttpResponse.ok<PixKeyDetailsResponse>().body(PixKeyDetailsResponse.of(response))
+    }
+
+    @Get
+    fun listAll(@QueryValue clientId: UUID): HttpResponse<Any> {
+        val response = keyManager.listAllByClient(
+            ListAllPixKeysRequest.newBuilder()
+                .setClientId(clientId.toString())
+                .build()
+        )
+        return HttpResponse.ok<ListPixKeysResponse>().body(ListPixKeysResponse.of(response))
     }
 
 }
