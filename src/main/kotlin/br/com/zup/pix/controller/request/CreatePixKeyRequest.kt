@@ -2,7 +2,6 @@ package br.com.zup.pix.controller.request
 
 import br.com.zup.pix.CreatePixKeyRequest
 import br.com.zup.pix.validator.ValidPixKey
-import br.com.zup.pix.validator.ValidUniqueId
 import io.micronaut.core.annotation.Introspected
 import java.util.*
 import javax.validation.constraints.NotNull
@@ -13,7 +12,6 @@ import br.com.zup.pix.KeyType as GrpcKeyType
 @ValidPixKey
 data class CreatePixKeyRequest(
 
-    @field:ValidUniqueId
     @field:NotNull
     val clientId: UUID?,
 
