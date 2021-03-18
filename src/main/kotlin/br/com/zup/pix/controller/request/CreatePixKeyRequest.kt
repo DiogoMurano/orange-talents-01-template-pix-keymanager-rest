@@ -1,6 +1,8 @@
 package br.com.zup.pix.controller.request
 
 import br.com.zup.pix.CreatePixKeyRequest
+import br.com.zup.pix.controller.shared.AccountType
+import br.com.zup.pix.controller.shared.KeyType
 import br.com.zup.pix.validator.ValidPixKey
 import io.micronaut.core.annotation.Introspected
 import java.util.*
@@ -30,16 +32,4 @@ data class CreatePixKeyRequest(
         .setKeyValue(keyValue)
         .setAccountType(GrpcAccountType.valueOf(accountType!!.name))
         .build()
-}
-
-enum class KeyType {
-    CPF,
-    TELL_NUMBER,
-    EMAIL,
-    RANDOM
-}
-
-enum class AccountType {
-    CONTA_CORRENTE,
-    CONTA_POUPANCA
 }
