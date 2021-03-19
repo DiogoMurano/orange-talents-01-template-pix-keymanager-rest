@@ -1,7 +1,7 @@
 package br.com.zup.pix.validator
 
 import br.com.zup.pix.controller.request.CreatePixKeyRequest
-import br.com.zup.pix.controller.request.KeyType
+import br.com.zup.pix.controller.shared.KeyType
 import io.micronaut.core.annotation.AnnotationValue
 import io.micronaut.validation.validator.constraints.ConstraintValidator
 import io.micronaut.validation.validator.constraints.ConstraintValidatorContext
